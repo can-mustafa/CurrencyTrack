@@ -8,6 +8,8 @@ import com.mustafacan.currencytrack.domain.usecases.GetCurrenciesUseCase
 import com.mustafacan.currencytrack.domain.usecases.GetCurrencyValueUseCase
 import com.mustafacan.currencytrack.domain.usecases.SearchCurrencyUseCase
 import com.mustafacan.currencytrack.presentation.viewmodel.CurrencyViewModel
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -24,8 +26,13 @@ class AppModule {
 
             single<CurrencyApi> {
 
+                val interceptor =
+                    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+                val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
                 val retrofit = Retrofit.Builder()
                     .baseUrl("https://cdn.jsdelivr.net/gh/fawazahmed0/")
+                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 

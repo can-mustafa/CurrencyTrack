@@ -15,9 +15,9 @@ class SearchCurrencyUseCase {
         val newList: MutableList<Currency> = mutableListOf()
         return flow {
             currentList.forEachIndexed { _, currency ->
-                if (currency.title.contains(searchQuery)) {
-                    newList.add(currency)
-                }
+//                if (currency.(searchQuery)) {
+//                    newList.add(currency)
+//                }
             }
             newList.toList()
         }

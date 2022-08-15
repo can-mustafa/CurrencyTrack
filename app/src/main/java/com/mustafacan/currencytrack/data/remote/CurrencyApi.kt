@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface CurrencyApi {
 
     @GET("currency-api@1/latest/currencies.json")
-    suspend fun getCurrencies(): List<Currency>
+    suspend fun getCurrencies(): Currency
 
     @GET("currency-api@1/latest/currencies/{currency}/{currencySecond}.json")
     suspend fun getCurrencyValue(

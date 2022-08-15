@@ -9,7 +9,7 @@ import com.mustafacan.currencytrack.domain.repository.CurrencyRepository
 
 class CurrencyRepositoryImpl(private val currencyApi: CurrencyApi) : CurrencyRepository {
 
-    override suspend fun getAvailableCurrencies(): List<Currency> {
+    override suspend fun getAvailableCurrencies(): Currency {
         return currencyApi.getCurrencies()
     }
 

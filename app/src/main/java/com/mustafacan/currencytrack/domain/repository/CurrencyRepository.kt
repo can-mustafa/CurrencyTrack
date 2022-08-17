@@ -7,5 +7,5 @@ import com.mustafacan.currencytrack.domain.model.CurrencyValue
 
 interface CurrencyRepository {
     suspend fun getAvailableCurrencies(): Currency
-    suspend fun getCurrencyValue(currencyCode: String, secondCurrencyCode: String): CurrencyValue
+    suspend fun getCurrencyValue(fromCurrencyCode: String, toCurrencyCode: String): CurrencyValue
 }

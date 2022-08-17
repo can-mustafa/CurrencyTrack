@@ -14,9 +14,9 @@ class CurrencyRepositoryImpl(private val currencyApi: CurrencyApi) : CurrencyRep
     }
 
     override suspend fun getCurrencyValue(
-        currencyCode: String,
-        secondCurrencyCode: String
+        fromCurrencyCode: String,
+        toCurrencyCode: String
     ): CurrencyValue {
-        return currencyApi.getCurrencyValue(currencyCode, secondCurrencyCode)
+        return currencyApi.getCurrencyValue(fromCurrencyCode, toCurrencyCode)
     }
 }

@@ -17,22 +17,6 @@
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="From"
-        app:layout_constraintStart_toStartOf="@+id/spFromCurrency"
-        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />
-
-    <TextView
-        android:id="@+id/tvTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="To"
-        app:layout_constraintStart_toStartOf="@+id/spToCurrency"
-        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFrom"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -40,10 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:hint="Amount"
-        app:layout_constraintBottom_toBottomOf="@+id/spFromCurrency"
-        app:layout_constraintEnd_toStartOf="@+id/spFromCurrency"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/spFromCurrency">
+        app:layout_constraintTop_toBottomOf="@id/guideline_bottom">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFrom"
@@ -53,13 +36,30 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="From"
+        app:layout_constraintStart_toStartOf="@+id/tilFrom"
+        app:layout_constraintTop_toBottomOf="@id/tilFrom" />
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To"
+        app:layout_constraintStart_toStartOf="@id/guideline_middle"
+        app:layout_constraintTop_toTopOf="@id/tvFrom" />
+
     <Spinner
         android:id="@+id/spFromCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:padding="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/spToCurrency"
+        app:layout_constraintEnd_toEndOf="@id/guideline_middle"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
 
     <Spinner
@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/tvTo"
         app:layout_constraintTop_toBottomOf="@+id/tvTo" />
 
     <Button
@@ -91,6 +92,19 @@
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toTopOf="@+id/btnConvert"
         tools:text="10 EUR = 15.0 USD" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+
+        tools:text="Date: 2022-08-17" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -116,6 +130,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_end"
